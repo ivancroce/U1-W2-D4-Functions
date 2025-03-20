@@ -80,7 +80,7 @@ function epify(name) {
     //  if (name.toUpperCase().startsWith(`EPICODE`)) {  to transform it to upper case to find it both lower/uppercases
     return name;
   } else {
-    return `EPICODE` + name;
+    return `EPICODE ` + name;
   }
 }
 console.log(epify(`Ivan`));
@@ -146,8 +146,7 @@ console.log(reverseString("EPICODE"));
 
 function upperFirst(str) {
   const words = str.split(" ");
-
-  const arrofNewWords = [];
+  const arrOfNewWords = [];
 
   for (let i = 0; i < words.length; i++) {
     const word = words[i];
@@ -155,10 +154,10 @@ function upperFirst(str) {
     const firstCharUpperCase = firstChar.toUpperCase();
     const remainingLetters = word.slice(1);
     const wordCatitalized = firstCharUpperCase + remainingLetters;
-    arrofNewWords.push(wordCatitalized);
+    arrOfNewWords.push(wordCatitalized);
   }
 
-  return arrofNewWords.join(" ");
+  return arrOfNewWords.join(" ");
 }
 
 console.log(upperFirst("Today is a beautiful day"));
@@ -170,11 +169,25 @@ console.log(upperFirst("Today is a beautiful day"));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
-//posizionarti sull'ultima e la prima, oppure mid
+function cutString(str) {
+  const newStr = str.slice(1, -1);
+  return newStr;
+}
+
+console.log(cutString(`Hello World`));
 
 /* ESERCIZIO 10
  Scrivi una funzione di nome "giveMeRandom", che accetta come parametro un numero n e ritorna un'array contenente n numeri casuali inclusi tra 0 e 10.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-//last example
+
+function giveMeRandom(n) {
+  const arrOfNums = [];
+  for (let i = 0; i < n; i++) {
+    arrOfNums.push(Math.floor(Math.random() * 11));
+  }
+  return arrOfNums;
+}
+
+console.log(giveMeRandom(3));
