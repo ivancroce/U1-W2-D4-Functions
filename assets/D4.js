@@ -17,11 +17,11 @@ console.log(area(10, 12));
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 function crazySum(num1, num2) {
-  const result = num1 + num2;
+  const sum = num1 + num2;
   if (num1 === num2) {
-    return result * 3;
+    return sum * 3;
   } else {
-    return result;
+    return sum;
   }
 }
 console.log(crazySum(20, 30)); // output 50
@@ -35,11 +35,11 @@ console.log(crazySum(20, 30)); // output 50
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 function crazyDiff(num1) {
-  const result = Math.abs(num1 - 19);
+  const absDiff = Math.abs(num1 - 19);
   if (num1 > 19) {
-    return result * 3;
+    return absDiff * 3;
   } else {
-    return result;
+    return absDiff;
   }
 }
 console.log(crazyDiff(20)); // output 3 ==> 20-19=1   1*3=3
@@ -55,7 +55,7 @@ console.log(crazyDiff(20)); // output 3 ==> 20-19=1   1*3=3
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 function boundary(n) {
-  if ((n > 20 && n <= 100) || n === 400) {
+  if ((n >= 20 && n <= 100) || n === 400) {
     return true;
   } else {
     return false;
@@ -63,6 +63,9 @@ function boundary(n) {
 }
 
 console.log(boundary(200));
+
+/* semplificato senza usare if:
+return ((n >= 20 && n <= 100) || n === 400) */
 
 /* ESERCIZIO 5
  Scrivi una funzione di nome "epify" che accetta una stringa come parametro.
@@ -74,6 +77,7 @@ console.log(boundary(200));
 
 function epify(name) {
   if (name.startsWith(`EPICODE`)) {
+    //  if (name.toUpperCase().startsWith(`EPICODE`)) {  to transform it to upper case to find it both lower/uppercases
     return name;
   } else {
     return `EPICODE` + name;
@@ -93,6 +97,7 @@ console.log(epify(`Ivan`));
 
 function check3and7(num) {
   if (num % 3 === 0 || num % 7 === 0) {
+    // simplified: return (num % 3 === 0 || num % 7 === 0)
     return true;
   } else {
     return false;
@@ -106,12 +111,57 @@ console.log(check3and7(10));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+function reverseString(str) {
+  const arrOfChar = str.split("");
+  const lettersReversed = arrOfChar.reverse();
+
+  const arrToStr = lettersReversed.join("");
+  return arrToStr;
+  // return str.split("").reverse().join("")     // simplified
+}
+console.log(reverseString("EPICODE"));
+
+/* function reverseString(str) {                 // creating an empty array and pushing the characters inside
+const reversedChar = [];
+
+for (let i = str.length -1; i >= 0; i--);
+reversedChar.push(str[i]);
+}
+
+const arrToStr = reversedChar.join("");
+return arrToStr;
+}
+
+console.log(reverseString("EPICODE"));
+
+*/
 /* ESERCIZIO 8
  Scrivi una funzione di nome "upperFirst", che riceve come parametro una stringa formata da diverse parole.
  La funzione deve rendere maiuscola la prima lettera di ogni parola contenuta nella stringa.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+//split + for
+
+function upperFirst(str) {
+  const words = str.split(" ");
+
+  const arrofNewWords = [];
+
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+    const firstChar = word.charAt(0);
+    const firstCharUpperCase = firstChar.toUpperCase();
+    const remainingLetters = word.slice(1);
+    const wordCatitalized = firstCharUpperCase + remainingLetters;
+    arrofNewWords.push(wordCatitalized);
+  }
+
+  return arrofNewWords.join(" ");
+}
+
+console.log(upperFirst("Today is a beautiful day"));
 
 /* ESERCIZIO 9
  Scrivi una funzione di nome "cutString", che riceve come parametro una stringa. La funzione deve creare una nuova stringa senza il primo e l'ultimo carattere
